@@ -27,7 +27,7 @@ sudo docker start kinetic
 sudo docker attach kinetic
 ```
 
-# Example(Navigation)
+# Example (Navigation)
 We can use `byobu` to manage multi-session in docker for convenience.
 
 * Start ROS core and emulator
@@ -36,13 +36,13 @@ source ~/catkin_ws/devel/setup.bash
 source ~/catkin_ws/src/model.sh
 roslaunch turtlebot3_gazebo turtlebot3_world.launch
 ```
-* Start `teleop` to operate the robot remotely(In another session)
+* Start `teleop` to operate the robot remotely (In another session)
 ```
 source ~/catkin_ws/devel/setup.bash
 source ~/catkin_ws/src/model.sh
 roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 ```
-* Start `slam` to build up the map(In another session)
+* Start `slam` to build up the map (In another session)
 ```
 source ~/catkin_ws/devel/setup.bash
 source ~/catkin_ws/src/model.sh
