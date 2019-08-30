@@ -29,7 +29,11 @@ sudo docker attach kinetic
 
 # Example (Navigation)
 We can use `byobu` to manage multi-session in docker for convenience.
-
+* Initial
+```
+cd ~/catkin_ws/src
+source ./init.sh
+```
 * Start ROS core and emulator
 ```
 source ~/catkin_ws/devel/setup.bash
