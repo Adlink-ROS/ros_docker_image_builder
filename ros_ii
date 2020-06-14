@@ -1,7 +1,7 @@
-FROM osrf/ros:kinetic-desktop-xenial
+FROM osrf/ros:indigo-desktop-trusty
 RUN rm /etc/apt/apt.conf.d/docker-clean
 RUN apt-get update
-RUN apt-get install -y ros-kinetic-desktop-full=1.3.2-0* \
+RUN apt-get install -y ros-indigo-desktop-full=1.1.6-0* \
    bash-completion \
    iputils-ping \
    net-tools \
@@ -17,4 +17,4 @@ RUN cp /etc/skel/.bashrc /home/ros
 RUN rosdep update
 USER ros
 WORKDIR /home/ros
-RUN echo 'source /opt/ros/kinetic/setup.bash' >> ~/.bashrc
+RUN echo 'source /opt/ros/indigo/setup.bash' >> ~/.bashrc

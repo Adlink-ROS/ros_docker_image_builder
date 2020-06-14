@@ -1,0 +1,22 @@
+FROM ubuntu:20.04 as base
+ARG DEBIAN_FRONTEND=noninteractive
+RUN rm /etc/apt/apt.conf.d/docker-clean
+RUN apt-get update
+RUN apt-get install -y lsb-core sudo
+RUN echo 'adlinkros\nadlinkros' | passwd
+RUN sh -c 'echo "deb http://packages.ros.org/ros2/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+RUN apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+RUN apt-get update
+RUN apt-get install -y \
+   iputils-ping \
+   net-tools \
+   vim \
+   byobu \
+   build-essential \
+   git
+RUN useradd --create-home --shell /bin/bash ros
+RUN usermod -aG sudo ros
+RUN echo 'adlinkros\nadlinkros' | passwd ros
+RUN cp /etc/skel/.bashrc /home/ros
+USER ros
+RUN echo 'source /opt/ros/foxy/setup.bash' >> ~/.bashrc

@@ -1,4 +1,5 @@
 #!/bin/bash
+DIR=$(dirname $(readlink -f $0))
 
 case $1 in
 	kinetic)
@@ -6,6 +7,12 @@ case $1 in
 	;;
 	melodic)
 		DOCKER_FILE=ros_mm
+	;;
+	indigo)
+		DOCKER_FILE=ros_ii
+	;;
+	foxy)
+		DOCKER_FILE=ros_ff
 	;;
 	*)
 		if [ -z $1 ]; then
@@ -22,11 +29,6 @@ echo "Building $1"
 sudo xhost local:root
 sudo xhost +local:root
 sudo docker build -t ros_$1 . --no-cache -f $DOCKER_FILE
-sudo docker run -itd \
-    --env="DISPLAY" \
-    --env="QT_X11_NO_MITSHM=1" \
-    --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
-    --name "$1" \
-    ros_$1
-export containerId=$(sudo docker ps -l -q)
+./start_ros.sh $1
+# export containerId=$(sudo docker ps -l -q)
 
