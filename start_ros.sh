@@ -6,7 +6,7 @@ case $1 in
 		DOCKER_FILE=ros_kk
 	;;
 	melodic)
-		DOCKER_FILE=ros_melodic
+		DOCKER_FILE=ros_mm
 	;;
 	indigo)
 		DOCKER_FILE=ros_ii
