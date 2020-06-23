@@ -31,6 +31,8 @@ sudo docker attach kinetic
 We can use `byobu` to manage multi-session in docker for convenience.
 * Initial
 ```
+cd ~
+git clone https://github.com/skylerpan/catkin_ws.git
 cd ~/catkin_ws/src
 source ./init.sh
 ```
