@@ -31,7 +31,7 @@ echo "Building $1"
 
 sudo xhost local:root
 sudo xhost +local:root
-sudo docker build -t ros_$1 . --no-cache -f $DOCKER_FILE
+sudo docker build -t arm64_$1 . --no-cache -f $DOCKER_FILE
 ./start_ros.sh $1
 # export containerId=$(sudo docker ps -l -q)
 

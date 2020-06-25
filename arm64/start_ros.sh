@@ -29,8 +29,7 @@ esac
 
 echo "Starting"
 #echo "$(id -u):$(id -g)"
-sudo docker run -itd -u $(id -u):$(id -g) \
-    --privileged \
+sudo docker run -itd \
     --network host \
     --env="DISPLAY" \
     --env="QT_X11_NO_MITSHM=1" \
@@ -40,6 +39,6 @@ sudo docker run -itd -u $(id -u):$(id -g) \
     --hostname $1 \
     --add-host $1:127.0.1.1 \
     --name $1 \
-    ros_$1
+    arm64_$1
 sudo docker start -i $1
 # export containerId=$(sudo docker ps -l -q)

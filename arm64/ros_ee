@@ -1,7 +1,7 @@
-FROM osrf/ros:foxy-desktop
+FROM arm64v8/ros:eloquent
 RUN rm /etc/apt/apt.conf.d/docker-clean
 RUN apt-get update
-RUN apt-get -y ros-foxy-destop \
+RUN apt-get install -y ros-eloquent-desktop \
    bash-completion \
    iputils-ping \
    net-tools \
@@ -17,4 +17,4 @@ RUN cp /etc/skel/.bashrc /home/ros
 RUN rosdep update
 USER ros
 WORKDIR /home/ros
-RUN echo 'source /opt/ros/foxy/setup.bash' >> ~/.bashrc
+RUN echo 'source /opt/ros/eloquent/setup.bash' >> ~/.bashrc
