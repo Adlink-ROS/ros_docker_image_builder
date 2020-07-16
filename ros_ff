@@ -1,7 +1,7 @@
 FROM osrf/ros:foxy-desktop
 RUN rm /etc/apt/apt.conf.d/docker-clean
 RUN apt-get update
-RUN apt-get -y ros-foxy-destop \
+RUN apt-get install -y ros-foxy-destop \
    bash-completion \
    iputils-ping \
    net-tools \
